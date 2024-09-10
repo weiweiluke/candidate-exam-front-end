@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // The target version (ECMAScript) of the compiled code.
+    "module": "ESNext", // The module system type to use. ESNext supports more features such as dynamic imports.
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // The library files to include. DOM, DOM.Iterable, and ESNext are fundamental dependencies in TypeScript development.
+    "useDefineForClassFields": true,
+    "skipLibCheck": true, // Skip type checking of imported library files to speed up the build process.
+    "allowJs": true, // Allow compilation of JavaScript files.
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "sourceMap": true, // Output *.map files for source code mapping.
+    "declaration": true, // Whether to generate declaration files (.d.ts).
+    "preserveWatchOutput": true, // This option allows to keep previously compiled files in watch mode, avoiding recompilation when deleted files are changed.
+    "removeComments": true, // Whether to remove comments. It can improve compilation speed and reduce the size of generated files.
+    "allowImportingTsExtensions": true, // Allow importing modules with .ts or .tsx extensions in import statements without explicitly specifying the extension.
+    "resolveJsonModule": true, // Allow importing JSON modules.
+    "isolatedModules": true, // Treat each file as a separate compilation unit (speeds up compilation).
+    "noEmit": true, // The compiler does not emit any JS files.
+    "jsx": "react-jsx",
+    // Enable better compatibility between TypeScript and CommonJS modules. When using the CommonJS module system, exported modules will be wrapped in an object because CommonJS uses syntax similar to module.exports to export modules.
+    // However, some tools and libraries may need to import these CommonJS modules in the ES6 module way. In this case, you can enable the esModuleInterop option.
+    // When enabled, you don't need to use default exports to import CommonJS modules correctly, and you don't need to manually handle require() and module.exports.
+    // This makes the process of importing and using CommonJS modules more concise and convenient.
+    "esModuleInterop": true,
+
+    /* Linting */
+    "strict": true, // Enable all strict type checking options.
+    "strictNullChecks": true, // Perform strict checks for null values.
+    "noImplicitAny": true, // Disallow implicit any types.
+    "noUnusedLocals": true, // Eliminate warnings for unused variables.
+    "noUnusedParameters": true, // Eliminate warnings for unused parameters.
+    "noFallthroughCasesInSwitch": true, // Avoid falling through cases in switch statements.
+    "useUnknownInCatchVariables": false, // When true, variables declared in catch blocks will be treated as unknown instead of the default any type.
+
+    // https://vitejs.dev/guide/features#client-types
+    "types": ["vite/client"],
+
+    "baseUrl": ".",
+    /* alias */
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    }
+  },
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "dist"]
+}
